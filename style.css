@@ -1,0 +1,30 @@
+.img-logo{
+height:105px;
+width: 540px;	
+}
+
+
+.span-center{
+	 display: block; 
+     text-align: center;
+}
+
+.span-right{
+	 display: block; 
+     margin-left:65%;
+}
+
+.span-left{
+	 display: block; 
+     margin-left:0%;
+}
+
+.span-etatcivil{
+	 display: block; 
+     margin-left:25%;
+}
+
+.span-coordonnee{
+     display: block; 
+     margin-left:25%;
+}
