@@ -28,17 +28,19 @@
 						<button type="button" id="btnfoundlicences" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Rechercher un(e) licencé(e)</button>
 						<button type="button" id="btnvoirclub" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Rechercher un Club</button>
 					</div>
-					<div class="col-sm-10" style="background-color:lavenderblush;">
-					
-					</div>
+					<div class="col-sm-10" style="background-color:lavenderblush;">';
 						
+echo '
+						<span class="span-center">Création des Licenciés</span>
+';
+echo'				</div>
 				</div>
 			';
 		
 		?>
 	
 		 <script>
-				var btncreatelicences = document.getElementById('btncreatelicences');
+			var btncreatelicences = document.getElementById('btncreatelicences');
 				btncreatelicences.addEventListener('click', function() {
 					document.location.href = 'creerLicense.php';
 				});

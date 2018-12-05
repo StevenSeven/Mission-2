@@ -28,17 +28,47 @@
 						<button type="button" id="btnfoundlicences" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Rechercher un(e) licencé(e)</button>
 						<button type="button" id="btnvoirclub" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Rechercher un Club</button>
 					</div>
-					<div class="col-sm-10" style="background-color:lavenderblush;">
-					
-					</div>
+					<div class="col-sm-10" style="background-color:lavenderblush;">';
 						
+							echo'
+							<span class="span-center">Liste des licenciés</span>
+							
+							<form action="index.php?foundlicencie" method="post">
+								<table align="left" style="width:50%;">
+									<tr>
+										<td width="20%"><label for="numlicence"> N° licence:</label></td>
+										<td width="50"><input name="debnumlicence"></td>
+										<td width="50"><input name="finnumlicence"></td>
+									</tr>
+									<tr>
+										<td width="20%"><label for="nom"> Nom:</label></td>
+										<td width="50"><input name="debnom"></td>
+										<td width="50"><input name="finnom"></td>
+									</tr>
+									<tr>
+										<td width="20%"><label for="club"> Club:</label></td>
+										<td width="50"><input name="debclub"></td>
+										<td width="50"><input name="finclub"></td>
+									</tr>
+								</table>
+								<button type="Submit">Valider</button>
+							</form>
+							<button>Annuler</button>
+							<button type="button" id="btncreatelicences">Créer</button>
+								';
+							if(isset($_POST['debclub'])){
+								echo $_POST['finclub'];
+							}								
+						
+						
+echo'				</div>
 				</div>
 			';
 		
 		?>
 	
 		 <script>
-				var btncreatelicences = document.getElementById('btncreatelicences');
+			var btncreatelicences = document.getElementById('btncreatelicences');
 				btncreatelicences.addEventListener('click', function() {
 					document.location.href = 'creerLicense.php';
 				});
