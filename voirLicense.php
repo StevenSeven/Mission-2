@@ -14,7 +14,7 @@
 <html>
     <body>
 		<?php
-		include "conn.ini.php";
+		include "connexion.php";
 			echo '
 				<div class="row">
 					<div class="col-sm-8" style="background-color:lavender;">

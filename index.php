@@ -14,7 +14,7 @@
 <html>
     <body>
 		<?php
-		include "conn.ini.php";
+		include "connexion.php";
 			echo '
 				<div class="row">
 					<div class="col-sm-8" style="background-color:lavender;">
@@ -27,6 +27,7 @@
 						<button type="button" id="btncreatelicences" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Création des licences</button>
 						<button type="button" id="btnfoundlicences" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Rechercher un(e) licencé(e)</button>
 						<button type="button" id="btnvoirclub" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Rechercher un Club</button>
+						<button type="button" id="btnaddclub" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Ajouter un Club</button>
 					</div>
 					<div class="col-sm-10" style="background-color:lavenderblush;">
 					
@@ -51,6 +52,10 @@
 				btnvoirclub.addEventListener('click', function() {
 					document.location.href = 'trouverClub.php';
 				});
+                var btnaddclub = document.getElementById('btnaddclub');
+                btnaddclub.addEventListener('click', function() {
+                    document.location.href = 'ajouterClub.php';
+                });
 		</script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
