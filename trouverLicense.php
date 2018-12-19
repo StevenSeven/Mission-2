@@ -43,18 +43,19 @@ include "connexion.php";
 					<table align="left" style="width:50%;">
 						<tr>
 							<td width="20%"><label for="numlicence"> N° licence:</label></td>
-							<td width="50"><input name="debnumlicence"></td>
-							<td width="50"><input name="finnumlicence"></td>
+							<td width="50"><input name="numlicence"></td>
 						</tr>
 						<tr>
 							<td width="20%"><label for="nom"> Nom:</label></td>
-							<td width="50"><input name="debnom"></td>
-							<td width="50"><input name="finnom"></td>
+							<td width="50"><input name="nom"></td>
+						</tr>
+						<tr>
+							<td width="20%"><label for="prenom"> Prenom:</label></td>
+							<td width="50"><input name="prenom"></td>
 						</tr>
 						<tr>
 							<td width="20%"><label for="club"> Club:</label></td>
-							<td width="50"><input name="debclub"></td>
-							<td width="50"><input name="finclub"></td>
+							<td width="50"><input name="club"></td>
 						</tr>
 					</table>
 				</form>
