@@ -37,7 +37,7 @@ include "connexion.php";
 		<button type="button" id="btnaddclub" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Ajouter un Club</button>
 	</div>
 	<div class="col-sm-10" style="background-color:lavenderblush;">
-		<form name="form" method="post" action="insererLicencie.php">
+		<form name="form" method="post" action="insererLicencie.php" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<td width="20%"><label for="nom"> Nom:</label></td>
@@ -53,7 +53,7 @@ include "connexion.php";
 					</tr>
 					<tr>
 						<td width="20%"><label for="photo">Photo:</label></td>
-						<td width="50"><input type="text" name="photo" required=true></td>
+						<td width="50"><input type="file" accept="image/*" name="my_image" required=true></td>
 					</tr>
 					<tr>
 						<td width="20%"><label for="Sexe">Sexe:</label></td>
