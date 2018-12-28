@@ -147,18 +147,16 @@ if(isset($_POST['numlicence'])){
 			<td width="20%"><label for="numlicence">Prénom</label></td>
 			<td width="20%"><label for="numlicence">Club</label></td>
 		</tr>
-		<tr>
 <?php
 	while ($donnees = $req->fetch())
     {
+		echo '<tr>';
 		echo '<td width="20%"><a href="voirLicense.php?id='.$donnees['numlicencie'].'">'.$donnees['numlicencie'].'</a></td>';
 		echo '<td width="20%"><label for="nom">'.$donnees['nomlicencie'].'</label></td>';
 		echo '<td width="20%"><label for="prenom">'.$donnees['prenomlicencie'].'</label></td>';
 		echo '<td width="20%"><label for="club">'.$donnees['id_ClubLicencie'].'</label></td>';
-	}
-?>
-		</tr>
-<?php		
+		echo '</tr>';
+	}		
 }						
 ?>			
 						
