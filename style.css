@@ -3,6 +3,13 @@ height:105px;
 width: 540px;	
 }
 
+.image{
+	width:235px;
+	height:418px;
+	position:relative;
+	top:10%;
+	left:40%;
+}
 
 .span-center{
 	 display: block; 

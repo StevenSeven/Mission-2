@@ -72,7 +72,7 @@ include "connexion.php";
 if(isset($_POST['numlicence']) && !empty($_POST['numlicence']) && empty($_POST['prenom']) && empty($_POST['nom']) && empty($_POST['club'])){
 	
 	$recherche = $_POST['numlicence'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE numlicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE numlicencie= ? and validation=1');
     $req->execute (array($recherche));
 				
 }
@@ -80,7 +80,7 @@ if(isset($_POST['numlicence']) && !empty($_POST['numlicence']) && empty($_POST['
 if(isset($_POST['nom']) && !empty($_POST['nom']) && empty($_POST['prenom']) && empty($_POST['numlicence']) && empty($_POST['club'])){
 	
 	$recherche = $_POST['nom'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and validation=1');
     $req->execute (array($recherche));
 				
 }
@@ -88,7 +88,7 @@ if(isset($_POST['nom']) && !empty($_POST['nom']) && empty($_POST['prenom']) && e
 if(isset($_POST['prenom']) && !empty($_POST['prenom']) && empty($_POST['nom']) && empty($_POST['numlicence']) && empty($_POST['club'])){
 	
 	$recherche = $_POST['prenom'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE prenomlicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE prenomlicencie= ? and validation=1');
     $req->execute (array($recherche));
 				
 }
@@ -96,7 +96,7 @@ if(isset($_POST['prenom']) && !empty($_POST['prenom']) && empty($_POST['nom']) &
 if(isset($_POST['club']) && !empty($_POST['club']) && empty($_POST['nom']) && empty($_POST['numlicence']) && empty($_POST['prenom'])){
 	
 	$recherche = $_POST['club'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE id_ClubLicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE id_ClubLicencie= ? and validation=1');
     $req->execute (array($recherche));
 				
 }
@@ -105,7 +105,7 @@ if(isset($_POST['nom']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && 
 	
 	$recherche1 = $_POST['nom'];
 	$recherche2 = $_POST['prenom'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and prenomlicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and prenomlicencie= ? and validation=1');
     $req->execute (array($recherche1,$recherche2));
 				
 }
@@ -114,7 +114,7 @@ if(isset($_POST['nom']) && !empty($_POST['nom']) && empty($_POST['prenom']) && e
 	
 	$recherche1 = $_POST['nom'];
 	$recherche2 = $_POST['club'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and id_ClubLicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and id_ClubLicencie= ? and validation=1');
     $req->execute (array($recherche1,$recherche2));
 				
 }
@@ -123,7 +123,7 @@ if(isset($_POST['nom']) && empty($_POST['nom']) && !empty($_POST['prenom']) && e
 	
 	$recherche1 = $_POST['prenom'];
 	$recherche2 = $_POST['club'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE prenomlicencie= ? and id_ClubLicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE prenomlicencie= ? and id_ClubLicencie= ? and validation=1');
     $req->execute (array($recherche1,$recherche2));
 				
 }
@@ -133,7 +133,7 @@ if(isset($_POST['nom']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && 
 	$recherche1 = $_POST['nom'];
 	$recherche2 = $_POST['club'];
 	$recherche3 = $_POST['prenom'];
-	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and id_ClubLicencie= ? and prenomlicencie= ?');
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and id_ClubLicencie= ? and prenomlicencie= ? and validation=1');
     $req->execute (array($recherche1,$recherche2,$recherche3));
 				
 }

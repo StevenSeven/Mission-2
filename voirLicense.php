@@ -40,6 +40,7 @@
 			$prenom=$data['prenomlicencie'];
 			$datenaiss=$data['datedenaissance'];
 			$sexe=$data['sexelicencie'];
+			$photo=$data['photolicencie'];
 			$categorie=$data['categorielicencie'];
 			$position=$data['positionlicencie'];
 			$adresse=$data['adr_licencie'];
@@ -64,6 +65,8 @@
 		<span class="span-center">Visualisation de la licence de <?php echo $nom ?> <?php echo $prenom ?></span>
 		<a href="trouverLicense.php">Retours</a>
 		<a href="">Modifier</a>
+		<br>
+		<img class="image" src="img\<?php echo $photo ?>" >
 		<span class="span-right">N° Licence: <?php echo $numlicence ?></span>
 		<span class="span-right">N° Club: <?php echo $id_club ?></span>
 		<div class="row">

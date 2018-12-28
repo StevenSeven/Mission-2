@@ -32,6 +32,35 @@ include "connexion.php";
 		<button type="button" id="btnvaliderlicence" class="btn btn-primary" style="margin-left:5px; margin-bottom:1px; width:210px;">Valider licences</button>
 	</div>
 	<div class="col-sm-10" style="background-color:lavenderblush;">
+<?php
+		$sql="SELECT * FROM licencie WHERE validation=0";
+		$req = $db->prepare($sql);
+		$req->execute();
+?>	
+		<table>
+			<tr>
+				<td width="20%"><label for="numlicence">N° de licence</label></td>
+				<td width="20%"><label for="numlicence">Nom</label></td>
+				<td width="20%"><label for="numlicence">Prénom</label></td>
+				<td width="20%"><label for="numlicence">Club</label></td>
+				<td width="20%"><label for="numlicence">Valider la licence</label></td>
+			</tr>
+<?php
+		while ($donnees = $req->fetch())
+		{
+			echo '<tr>';
+			echo '<td width="20%"><a href="voirLicense.php?id='.$donnees['numlicencie'].'">'.$donnees['numlicencie'].'</a></td>';
+			echo '<td width="20%"><label for="nom">'.$donnees['nomlicencie'].'</label></td>';
+			echo '<td width="20%"><label for="prenom">'.$donnees['prenomlicencie'].'</label></td>';
+			echo '<td width="20%"><label for="club">'.$donnees['id_ClubLicencie'].'</label></td>';
+			echo '<td width="20%"><a href="updateLicence.php?id='.$donnees['numlicencie'].'">Valider</a></td>';
+			echo '</tr>';
+		}		
+					
+?>
+		 
+
+	
 	</div>
 </div>
 
