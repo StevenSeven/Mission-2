@@ -18,6 +18,9 @@
         document.form.action = adresse;
         document.form.submit();
     }
+	function creer(){
+		document.location.href = 'creerLicense.php';
+	}
 </script>
 <?php
 include "connexion.php";
@@ -39,38 +42,124 @@ include "connexion.php";
 	<div class="col-sm-10" style="background-color:lavenderblush;">
 		<div class="formulaire col-sm-12">
 			<span class="span-center">Liste des licenciés</span>
-				<form name="form" method="post">
-					<table align="left" style="width:50%;">
-						<tr>
-							<td width="20%"><label for="numlicence"> N° licence:</label></td>
-							<td width="50"><input name="numlicence"></td>
-						</tr>
-						<tr>
-							<td width="20%"><label for="nom"> Nom:</label></td>
-							<td width="50"><input name="nom"></td>
-						</tr>
-						<tr>
-							<td width="20%"><label for="prenom"> Prenom:</label></td>
-							<td width="50"><input name="prenom"></td>
-						</tr>
-						<tr>
-							<td width="20%"><label for="club"> Club:</label></td>
-							<td width="50"><input name="club"></td>
-						</tr>
-					</table>
-				</form>
-				<button type="Submit" onclick="javascript:envoie('trouverLicense.php')">Valider</button>
-				<button>Annuler</button>
-				<button type="button" id="btncreatelicences">Créer</button>
-			</div>
-<?php				
-if(isset($_POST['debclub'])){
+			<form name="form" method="post">
+				<table>
+					<tr>
+						<td width="20%"><label for="numlicence"> N° licence:</label></td>
+						<td width="50"><input type="number" name="numlicence"></td>
+					</tr>
+					<tr>
+						<td width="20%"><label for="nom"> Nom:</label></td>
+						<td width="50"><input name="nom"></td>
+					</tr>
+					<tr>
+						<td width="20%"><label for="prenom"> Prenom:</label></td>
+						<td width="50"><input name="prenom"></td>
+					</tr>
+					<tr>
+						<td width="20%"><label for="club"> Club:</label></td>
+						<td width="50"><input type="number" name="club"></td>
+					</tr>
+				</table>
+			</form>
+			<button type="Submit" class="btn btn-default btn-lg btn-primary" onclick="javascript:envoie('trouverLicense.php')">Valider</button>
+			<button class="btn btn-default btn-lg btn-primary">Annuler</button>
+			<button type="button" class="btn btn-default btn-lg btn-primary" onclick="javascript:creer()">Créer</button>
+		</div>
+		<br>
+<?php
+// On recherche en fonction du numéro de licence				
+if(isset($_POST['numlicence']) && !empty($_POST['numlicence']) && empty($_POST['prenom']) && empty($_POST['nom']) && empty($_POST['club'])){
+	
+	$recherche = $_POST['numlicence'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE numlicencie= ?');
+    $req->execute (array($recherche));
+				
+}
+// On recherche en fonction du nom
+if(isset($_POST['nom']) && !empty($_POST['nom']) && empty($_POST['prenom']) && empty($_POST['numlicence']) && empty($_POST['club'])){
+	
+	$recherche = $_POST['nom'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ?');
+    $req->execute (array($recherche));
+				
+}
+// On recherche en fonction du prénom
+if(isset($_POST['prenom']) && !empty($_POST['prenom']) && empty($_POST['nom']) && empty($_POST['numlicence']) && empty($_POST['club'])){
+	
+	$recherche = $_POST['prenom'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE prenomlicencie= ?');
+    $req->execute (array($recherche));
+				
+}
+// On recherche en fonction du numéro de club
+if(isset($_POST['club']) && !empty($_POST['club']) && empty($_POST['nom']) && empty($_POST['numlicence']) && empty($_POST['prenom'])){
+	
+	$recherche = $_POST['club'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE id_ClubLicencie= ?');
+    $req->execute (array($recherche));
+				
+}
+// On recherche en fonction du nom et prénom
+if(isset($_POST['nom']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && empty($_POST['numlicence']) && empty($_POST['club'])){
+	
+	$recherche1 = $_POST['nom'];
+	$recherche2 = $_POST['prenom'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and prenomlicencie= ?');
+    $req->execute (array($recherche1,$recherche2));
+				
+}
+// On recherche en fonction du nom et numéro de club
+if(isset($_POST['nom']) && !empty($_POST['nom']) && empty($_POST['prenom']) && empty($_POST['numlicence']) && !empty($_POST['club'])){
+	
+	$recherche1 = $_POST['nom'];
+	$recherche2 = $_POST['club'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and id_ClubLicencie= ?');
+    $req->execute (array($recherche1,$recherche2));
+				
+}
+// On recherche en fonction du prenom et numéro de club
+if(isset($_POST['nom']) && empty($_POST['nom']) && !empty($_POST['prenom']) && empty($_POST['numlicence']) && !empty($_POST['club'])){
+	
+	$recherche1 = $_POST['prenom'];
+	$recherche2 = $_POST['club'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE prenomlicencie= ? and id_ClubLicencie= ?');
+    $req->execute (array($recherche1,$recherche2));
+				
+}
+// On recherche en fonction du nom et prénom et numéro de club
+if(isset($_POST['nom']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && empty($_POST['numlicence']) && !empty($_POST['club'])){
+	
+	$recherche1 = $_POST['nom'];
+	$recherche2 = $_POST['club'];
+	$recherche3 = $_POST['prenom'];
+	$req = $db->prepare('SELECT * FROM licencie WHERE nomlicencie= ? and id_ClubLicencie= ? and prenomlicencie= ?');
+    $req->execute (array($recherche1,$recherche2,$recherche3));
+				
+}
+
+if(isset($_POST['numlicence'])){
 ?>	
-			<div class="col-sm-12">
-				<span> test</span>
-			</div>
-<?php				
-}								
+	<table>
+		<tr>
+			<td width="20%"><label for="numlicence">N° de licence</label></td>
+			<td width="20%"><label for="numlicence">Nom</label></td>
+			<td width="20%"><label for="numlicence">Prénom</label></td>
+			<td width="20%"><label for="numlicence">Club</label></td>
+		</tr>
+		<tr>
+<?php
+	while ($donnees = $req->fetch())
+    {
+		echo '<td width="20%"><a href="voirLicense.php?id='.$donnees['numlicencie'].'">'.$donnees['numlicencie'].'</a></td>';
+		echo '<td width="20%"><label for="nom">'.$donnees['nomlicencie'].'</label></td>';
+		echo '<td width="20%"><label for="prenom">'.$donnees['prenomlicencie'].'</label></td>';
+		echo '<td width="20%"><label for="club">'.$donnees['id_ClubLicencie'].'</label></td>';
+	}
+?>
+		</tr>
+<?php		
+}						
 ?>			
 						
 	</div>

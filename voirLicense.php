@@ -31,33 +31,41 @@
 	</div>
 	<div class="col-sm-10" style="background-color:lavenderblush;">
 <?php
-		$sql = "SELECT * FROM licencié WHERE id_licencie = '".$_GET['viewlicences']."'";
+		$sql = "SELECT * FROM licencie WHERE numlicencie = '".$_GET['id']."'";
 		$rep = $db->query($sql);
 		while($data = $rep->fetch())
 		{
-			$nom=$data['nom_Licencie'];
-			$prenom=$data['prenom_Licencie'];
-			$datenaiss=$data['dateNaiss_Licencie'];
-			$sexe=$data['sexe_Licencie'];
-			$categorie=$data['categorie_Licencie'];
-			$position=$data['position_Licencie'];
-			$adresse=$data['adrRue_Licencie'];
-			$cp=$data['adrCP_Licencie'];
-			$ville=$data['adrVille_Licencie'];
-			$telephone=$data['tel_Licencie'];
-			$email=$data['email_Licencie'];
-			$nationnalite=$data['nationnalite_Licencie'];
-			$classification=$data['classification_Licencie'];
-			$finvaliditeCM=$data['finValiditeCM_Licencie'];
-			$firstanneelicence= $data['firstAnneeLicence_Licencie'];
-			$lastanneereprise= $data['lastAnneeReprise_Licencie'];
+			$numlicence=$data['numlicencie'];
+			$nom=$data['nomlicencie'];
+			$prenom=$data['prenomlicencie'];
+			$datenaiss=$data['datedenaissance'];
+			$sexe=$data['sexelicencie'];
+			$categorie=$data['categorielicencie'];
+			$position=$data['positionlicencie'];
+			$adresse=$data['adr_licencie'];
+			$cp=$data['adr_cp_licencie'];
+			$ville=$data['adr_ville_licencie'];
+			$telephone=$data['tel_licencie'];
+			$email=$data['mail_licencie'];
+			$nationnalite=$data['nationnalite_licencie'];
+			$classification=$data['classification_licencie'];
+			$finvaliditeCM=$data['validite_CM'];
+			$firstanneelicence= $data['premiere_licence'];
+			$lastanneereprise= $data['annee_reprise'];
+			$id_club= $data['id_ClubLicencie'];
+		}
+		$sql = "SELECT * FROM categorie WHERE id = '".$categorie."'";
+		$rep = $db->query($sql);
+		while($data = $rep->fetch())
+		{
+			$categorie=$data['libelle'];
 		}
 ?>				
 		<span class="span-center">Visualisation de la licence de <?php echo $nom ?> <?php echo $prenom ?></span>
-		<a href="index.php">Retours</a>
+		<a href="trouverLicense.php">Retours</a>
 		<a href="">Modifier</a>
-		<span class="span-right">N° Licence: </span>
-		<span class="span-right">N° Club: </span>
+		<span class="span-right">N° Licence: <?php echo $numlicence ?></span>
+		<span class="span-right">N° Club: <?php echo $id_club ?></span>
 		<div class="row">
 			<div class="col-sm-7">
 				<span class="span-etatcivil">Etat Civil</span>
