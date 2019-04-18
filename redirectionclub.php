@@ -47,26 +47,13 @@ else      $cpcourrier="";
 if(isset($_POST['numPrefecture_Club']))      $prefecture=$_POST['numPrefecture_Club'];
 else      $prefecture="";
 
-//if(empty($nom) || empty($sexe))
-{
-    //'<p color="red">Attention, champs 1 ou 2 vide !  </p>';
-//}
-//else {
-
-
-// on écrit la requéte sql
-
-     $sql = "INSERT INTO club(designation_Club,adrRueSiege_Club,adrVilleSiege_Club,adrCPSiege_Club,anneeAffiliation_Club,tel_Club,email_Club,adrRueCourrier_Club,adrVilleCourrier_Club,adrCPCourrier_Club,numPrefecture_Club) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-    // $sql = "select ajouter_animal('$nom','$sexe','$type','$pere','$mere','$naissance','$idfamille')";
-    //$sql = "select ajouter_club(?,?,?,?,?,?,?,?,?,?,?)";
-
-    $req = $db->prepare($sql);
+	$req = $db->prepare("CALL ajouterClub(?,?,?,?,?,?,?,?,?,?,?)");
     $req->execute(Array($libelle, $ruesiege,$villesiege, $cpsiege, $anneeaffiliation, $tel,$mail,$ruecourrier,$villecourrier,$cpcourrier,$prefecture));
     $req->closeCursor();
 
 // on affiche le résultat pour le visiteur
     echo 'Vos informations ont bien été ajoutées.';
-}
+
 ?>
 <p><a href="index.php">Retour à l'accueil</a></p></br>
 
