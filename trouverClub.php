@@ -83,7 +83,7 @@ include "connexion.php";
     ?>
 </ul>
 			</div>
-			<p><a href="index.php">Retour à l'acceuil</a></p></br>
+			<p><a href="index.php">Retour à l'accueil</a></p></br>
 
 		</div>
 	</div>
